@@ -5,6 +5,9 @@ const port = process.env.PORT || 5000;
 
 const app = express();
 
+// Set static folder
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use('/openai', require('./routes/openaiRoutes'));
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
